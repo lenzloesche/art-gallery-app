@@ -6,15 +6,22 @@ const fetcher = (...args) => fetch(...args).then((res) => res.json());
 export default function HomePage() {
   const { data } = useSWR(url, fetcher);
   console.log(data);
+  if (data === undefined) {
+    return <h1>Loading...</h1>;
+  }
   return (
     <div>
       <h1>Hello from Next.js</h1>
-      <Image
-        alt="image"
-        height={data[0].dimensions.height}
-        width={data[0].dimensions.width}
-        src={data[0].imageSource}
-      />
+      {data.map((picture) => {
+        return (
+          <Image
+            alt="image"
+            height={picture.dimensions.height}
+            width={picture.dimensions.width}
+            src={picture.imageSource}
+          />
+        );
+      })}
     </div>
   );
 }
