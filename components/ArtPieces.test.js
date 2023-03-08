@@ -8,7 +8,7 @@ for (let i = 0; i < 11; i++) {
       "https://example-apis.vercel.app/assets/art/orange-red-and-green.jpg",
     slug: "testslug" + i,
     dimensions: { height: 50, width: 50 },
-    name: "testname" + i,
+    name: "testtitle" + i,
     artist: "testartist" + i,
   });
 }
@@ -27,12 +27,22 @@ test("Each art pieces image is displayed", () => {
 
 test("Each art pieces title is displayed", () => {
   render(<ArtPieces pieces={pieces} />);
-  const titles = screen.getAllByRole("listitem");
-  expect(titles.length).toBeGreaterThan(10);
+  const listItems = screen.getAllByRole("listitem");
+  pieces.map((piece) => {
+    const doesExist = listItems.find((listItem) =>
+      listItem.innerHTML.includes(piece.name)
+    );
+    expect(doesExist).toBeTruthy();
+  });
 });
 
 test("Each art pieces artist is displayed", () => {
   render(<ArtPieces pieces={pieces} />);
-  const artist = screen.getAllByRole("listitem");
-  expect(artist.length).toBeGreaterThan(10);
+  const listItems = screen.getAllByRole("listitem");
+  pieces.map((piece) => {
+    const doesExist = listItems.find((listItem) =>
+      listItem.innerHTML.includes(piece.artist)
+    );
+    expect(doesExist).toBeTruthy();
+  });
 });
