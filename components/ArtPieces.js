@@ -13,6 +13,10 @@ export default function ArtPieces({ pieces }) {
               width={picture.dimensions.width * 0.1}
               src={picture.imageSource}
             />
+            <ul>
+              <li>Title: {picture.name}</li>
+              <li>Artist: {picture.artist}</li>
+            </ul>
           </li>
         );
       })}
