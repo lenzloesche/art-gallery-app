@@ -9,9 +9,6 @@ export default function SpotlightPage({ data }) {
   return (
     <div>
       <Spotlight pieces={data} />
-      <h1>Hello from Next.js</h1>
-      <ArtPiecePreview piece={data[0]} />
-      <ArtPieces pieces={data} />
     </div>
   );
 }

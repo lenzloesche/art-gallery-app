@@ -8,8 +8,8 @@ export default function Spotlight({ pieces }) {
       <h1>Spotlight</h1>
       <Image
         alt="image"
-        height={randomPiece.dimensions.height * 0.1}
-        width={randomPiece.dimensions.width * 0.1}
+        height={Math.floor(randomPiece.dimensions.height * 0.1)}
+        width={Math.floor(randomPiece.dimensions.width * 0.1)}
         src={randomPiece.imageSource}
       />
       <ul>
