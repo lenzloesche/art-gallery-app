@@ -9,8 +9,8 @@ export default function ArtPieces({ pieces }) {
           <li key={picture.slug}>
             <Image
               alt="image"
-              height={picture.dimensions.height * 0.1}
-              width={picture.dimensions.width * 0.1}
+              height={Math.floor(picture.dimensions.height * 0.1)}
+              width={Math.floor(picture.dimensions.width * 0.1)}
               src={picture.imageSource}
             />
             <ul>
